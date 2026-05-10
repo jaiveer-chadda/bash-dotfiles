@@ -33,17 +33,19 @@ export PAGER='less'
 export {HOMEBREW_{PREFIX,REPOSITORY},BREW}='/opt/homebrew'
 export HOMEBREW_CELLAR="$BREW/Cellar"
 
-# — Personal Variables —————————————————————————————————————————————————————— #
-
-export PROMPT_COMMAND='_set_ps1'  # runs before every prompt
-
-# — Filepaths ——————————————————————————————————————————————————————————————— #
+# — Filepaths Variables ————————————————————————————————————————————————————— #
 
 export CS{_DIR,}="$HOME/CS"
 export SHELL_DIR="$CS/Shellscript"
 
 export {BDOTDIR,BASH_SETTINGS_DIR}="$CONFIG/bash"
+export BASHRC="$BDOTDIR/.bashrc"
 export BASH_FUNCTIONS="$BDOTDIR/functions"
+
+# — Personal Settings ——————————————————————————————————————————————————————— #
+
+alias  bash='bash --rcfile "$BASHRC"'
+export PROMPT_COMMAND='_set_ps1'  # runs before every prompt
 
 # —— Set Options ———————————————————————————————————————————————————————————— #
 
@@ -56,6 +58,6 @@ shopt -s dirspell      # corrects spelling during globbing
 # —— Source All Config Files ———————————————————————————————————————————————— #
 
 # shellcheck disable=SC1090
-for file in "$BASH_FUNCTIONS"/**/*; do source "$file"; done
+for file in "$BASH_FUNCTIONS"/**/*.sh; do source "$file"; done
 
 # ——————————————————————————————————————————————————————————————————————————— #

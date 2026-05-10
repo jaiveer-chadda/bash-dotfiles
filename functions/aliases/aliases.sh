@@ -18,6 +18,8 @@ alias   r='fc -e -'
 alias  rr='source "$BDOTDIR/.bashrc"'
 alias rrr='source "$BDOTDIR/.bashrc"'
 
+alias  cr='clear; r'
+
 # —— cd ————————————————————————————————————————————————————————————————————— #
 
 alias -- '-'='cd "$OLDPWD"'
@@ -31,10 +33,23 @@ alias    bst='cd "$BDOTDIR"'
 alias  shell='cd "$SHELL_DIR"'
 alias config='cd "$XDG_CONFIG_HOME"'
 
+# —— rm ————————————————————————————————————————————————————————————————————— #
+
+alias   rm='command rm -vI'
+alias  rmr='command rm -vI -r'
+alias  rmf='command rm -vI -f'
+alias rmrf='command rm -vI -rf'
+
 # —— Other Conveneince Aliases —————————————————————————————————————————————— #
 
-alias  w='uptime; command w | gtail -n +2 | column -t'
-alias rc="echo -n $'\e[5 q'"
-alias wh='type -a'
+alias     w='uptime; command w | gtail -n +2 | column -t'
+alias     x='chmod u+x'
+alias -- -x='chmod u-x'
+alias    wh='type -a'
+alias    rc="echo -n $'\e[5 q'"
+alias    hg='history | rg'
+alias   cmd='command'
+alias  copy='pbcopy'
+alias  cols="column -t -s $'\t'"
 
 # ——————————————————————————————————————————————————————————————————————————— #
