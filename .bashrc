@@ -3,8 +3,11 @@
 # .bashrc
 # ~/.config/bash/.bashrc
 
+# shellcheck disable=SC1090,SC1091
+
 # — Shell Setup ————————————————————————————————————————————————————————————— #
 
+source /etc/profile  # gives all the benefits of a login shell
 export {SHELL,BASH}="$( which bash )"
 
 # — XDG Base Directory Specification ———————————————————————————————————————— #
@@ -25,6 +28,8 @@ export   DATA="$XDG_DATA_HOME"
 # — Bash Variables —————————————————————————————————————————————————————————— #
 
 export HISTFILE="$CONFIG/.history/.bash_history"
+export LC_ALL='en_GB.UTF-8'
+export LANG='C.UTF-8'
 export EDITOR='nvim'
 export PAGER='less'
 
@@ -57,7 +62,6 @@ shopt -s dirspell      # corrects spelling during globbing
 
 # —— Source All Config Files ———————————————————————————————————————————————— #
 
-# shellcheck disable=SC1090
 for file in "$BASH_FUNCTIONS"/**/*.sh; do source "$file"; done
 
 # ——————————————————————————————————————————————————————————————————————————— #
