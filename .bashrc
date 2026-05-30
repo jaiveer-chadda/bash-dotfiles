@@ -40,7 +40,7 @@ export HOMEBREW_CELLAR="$BREW/Cellar"
 
 # — Filepaths Variables ————————————————————————————————————————————————————— #
 
-export CS{_DIR,}="$HOME/CS"
+export CS{_DIR,}="$HOME/Desktop/CS"
 export SHELL_DIR="$CS/Shellscript"
 
 export {BDOTDIR,BASH_SETTINGS_DIR}="$CONFIG/bash"
