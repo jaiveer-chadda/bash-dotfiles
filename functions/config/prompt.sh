@@ -9,7 +9,11 @@ function _set_ps1 () {
   local -r formatted_path="${PWD/#$HOME/\~}"
   local -a path_array=()
 
-  IFS='/' read -ra path_array <<< "$formatted_path"
+  if [[ "$PWD" == '/' ]]; then
+    path_array=( '/' )
+  else
+    IFS='/' read -ra path_array <<< "$formatted_path"
+  fi
 
   local -i i colour_num
   local colour_esc path_segment output
@@ -18,7 +22,7 @@ function _set_ps1 () {
     colour_num="${colours[ i % ${#colours[@]} ]}"
     colour_esc=$'\[\e[9'"${colour_num}m\]"
 
-    path_segment="${path_array[i]}"
+    path_segment="${path_array[i]//://}"
 
     output+="$colour_esc$path_segment"
     # print a slash after every segment except the last
